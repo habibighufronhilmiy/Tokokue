@@ -16,6 +16,8 @@
   <!-- ===============================================-->
   <!--    Favicons-->
   <!-- ===============================================-->
+  <link rel="stylesheet" href="public/vendors/fontawesome/css/all.min.css">
+
   <link rel="apple-touch-icon" sizes="180x180" href="public/assets/img/favicons/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/x-icon" href="public/assets/img/icon.svg">
   <link rel="manifest" href="public/assets/img/favicons/manifest.json">
@@ -62,6 +64,19 @@
           <li class="nav-item"><a class="nav-link" aria-current="page" href="#validation">Tentang Kami</a></li>
           <li class="nav-item"><a class="nav-link" aria-current="page" href="#superhero">Ulasan</a></li>
           <li class="nav-item"><a class="nav-link" aria-current="page" href="#kontak">Kontak</a></li>
+          <hr class="my-5">
+<div class="container" id="cart-section">
+  <h3 class="text-center mb-4">Keranjang Belanja</h3>
+  <div id="cart" class="p-3 border rounded bg-light">
+    <ul id="cart-items" class="list-group mb-3"></ul>
+    <h5>Total: Rp <span id="cart-total">0</span></h5>
+    <div class="d-flex gap-2">
+      <button class="btn btn-success w-100" onclick="checkout()">Checkout</button>
+      <button class="btn btn-danger w-100" onclick="clearCart()">Hapus Semua</button>
+    </div>
+  </div>
+</div>
+
           </ul>
         </div>
       </div>
@@ -87,65 +102,108 @@
     </section>
 <!-- ============================================-->
     <!-- Section Kategori Kue -->
-    <section class="pt-5" id="feature" data-aos="fade-down">
-      <div class="container">
-        <h2 class="text-center mb-4">Kategori Kue</h2>
-        <div class="d-flex justify-content-center mb-4">
-          <button class="btn btn-outline-warning mx-2 filter-btn active" data-filter="ultah">Kue Ultah</button>
-          <button class="btn btn-outline-warning mx-2 filter-btn" data-filter="brownies">Kue Brownies</button>
-          <button class="btn btn-outline-warning mx-2 filter-btn" data-filter="bolu">Kue Bolu</button>
+<section class="pt-5" id="feature" data-aos="fade-down">
+  <div class="container">
+    <h2 class="text-center mb-4">Kategori Kue</h2>
+    <div class="d-flex justify-content-center mb-4">
+      <button class="btn btn-outline-warning mx-2 filter-btn active" data-filter="ultah">Kue Ultah</button>
+      <button class="btn btn-outline-warning mx-2 filter-btn" data-filter="brownies">Kue Brownies</button>
+      <button class="btn btn-outline-warning mx-2 filter-btn" data-filter="bolu">Kue Bolu</button>
+    </div>
+
+    <div class="row" id="gallery">
+
+      <!-- KUE ULTAH -->
+      <div class="col-md-4 mb-4 gallery-item ultah">
+        <div class="position-relative">
+          <img src="public/assets/img/ultah1.jpg" class="img-fluid rounded" alt="Kue Ultah 1">
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
+            data-name="Kue Ultah Classic" data-price="300000">
+            <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
+          </button>
         </div>
-  
-        <div class="row" id="gallery">
-          <!-- Kue Ultah -->
-          <div class="col-md-4 mb-4 gallery-item ultah">
-            <img src="public/assets/img/ultah1.jpg" class="img-fluid rounded" alt="Kue Ultah 1">
-            <div class="cake-info mt-2 text-center">
-              <h5 class="mb-1">Kue Ultah Classic</h5>
-              <p class="mb-0 fw-semibold">Rp 300.000</p>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4 gallery-item ultah">
-            <img src="public/assets/img/ultah2.jpg" class="img-fluid rounded" alt="Kue Ultah 2">
-            <div class="cake-info mt-2 text-center">
-              <h5 class="mb-1">Kue Ultah Cokelat</h5>
-              <p class="mb-0 fw-semibold">Rp 320.000</p>
-            </div>
-          </div>
-  
-          <!-- Kue Brownies -->
-          <div class="col-md-4 mb-4 gallery-item brownies">
-            <img src="public/assets/img/brownies1.jpg" class="img-fluid rounded" alt="Brownies 1">
-            <div class="cake-info mt-2 text-center">
-              <h5 class="mb-1">Brownies Cokelat</h5>
-              <p class="mb-0 fw-semibold">Rp 150.000</p>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4 gallery-item brownies">
-            <img src="public/assets/img/brownies2.jpg" class="img-fluid rounded" alt="Brownies 2">
-            <div class="cake-info mt-2 text-center">
-              <h5 class="mb-1">Brownies Strawberry</h5>
-              <p class="mb-0 fw-semibold">Rp 160.000</p>
-            </div>
-          </div>
-  
-          <!-- Kue Bolu -->
-          <div class="col-md-4 mb-4 gallery-item bolu">
-            <img src="public/assets/img/bolu1.jpg" class="img-fluid rounded" alt="Bolu 1">
-            <div class="cake-info mt-2 text-center">
-              <h5 class="mb-1">Bolu Cokelat</h5>
-              <p class="mb-0 fw-semibold">Rp 120.000</p>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4 gallery-item bolu">
-            <img src="public/assets/img/bolu2.jpg" class="img-fluid rounded" alt="Bolu 2">
-            <div class="cake-info mt-2 text-center">
-              <h5 class="mb-1">Bolu Talas</h5>
-              <p class="mb-0 fw-semibold">Rp 130.000</p>
-            </div>
-          </div>
+        <div class="cake-info mt-2 text-center">
+          <h5 class="mb-1">Kue Ultah Classic</h5>
+          <p class="mb-0 fw-semibold">Rp 300.000</p>
         </div>
       </div>
+
+      <div class="col-md-4 mb-4 gallery-item ultah">
+        <div class="position-relative">
+          <img src="public/assets/img/ultah2.jpg" class="img-fluid rounded" alt="Kue Ultah 2">
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
+            data-name="Kue Ultah Cokelat" data-price="320000">
+            <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
+          </button>
+        </div>
+        <div class="cake-info mt-2 text-center">
+          <h5 class="mb-1">Kue Ultah Cokelat</h5>
+          <p class="mb-0 fw-semibold">Rp 320.000</p>
+        </div>
+      </div>
+
+      <!-- KUE BROWNIES -->
+      <div class="col-md-4 mb-4 gallery-item brownies">
+        <div class="position-relative">
+          <img src="public/assets/img/brownies1.jpg" class="img-fluid rounded" alt="Brownies 1">
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
+            data-name="Brownies Cokelat" data-price="150000">
+            <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
+          </button>
+        </div>
+        <div class="cake-info mt-2 text-center">
+          <h5 class="mb-1">Brownies Cokelat</h5>
+          <p class="mb-0 fw-semibold">Rp 150.000</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4 gallery-item brownies">
+        <div class="position-relative">
+          <img src="public/assets/img/brownies2.jpg" class="img-fluid rounded" alt="Brownies 2">
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
+            data-name="Brownies Strawberry" data-price="160000">
+            <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
+          </button>
+        </div>
+        <div class="cake-info mt-2 text-center">
+          <h5 class="mb-1">Brownies Strawberry</h5>
+          <p class="mb-0 fw-semibold">Rp 160.000</p>
+        </div>
+      </div>
+
+      <!-- KUE BOLU -->
+      <div class="col-md-4 mb-4 gallery-item bolu">
+        <div class="position-relative">
+          <img src="public/assets/img/bolu1.jpg" class="img-fluid rounded" alt="Bolu 1">
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
+            data-name="Bolu Cokelat" data-price="120000">
+            <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
+          </button>
+        </div>
+        <div class="cake-info mt-2 text-center">
+          <h5 class="mb-1">Bolu Cokelat</h5>
+          <p class="mb-0 fw-semibold">Rp 120.000</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4 gallery-item bolu">
+        <div class="position-relative">
+          <img src="public/assets/img/bolu2.jpg" class="img-fluid rounded" alt="Bolu 2">
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
+            data-name="Bolu Talas" data-price="130000">
+            <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
+          </button>
+        </div>
+        <div class="cake-info mt-2 text-center">
+          <h5 class="mb-1">Bolu Talas</h5>
+          <p class="mb-0 fw-semibold">Rp 130.000</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
   
       <style>
         .filter-btn.active {
@@ -165,6 +223,62 @@
           font-weight: 700;
           font-size: 1rem;
         }
+        .gallery-item .position-relative {
+  overflow: hidden;
+}
+
+.gallery-item img {
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item .add-to-cart {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .add-to-cart {
+  opacity: 1;
+}
+.gallery-item .position-relative {
+  overflow: hidden;
+}
+
+.gallery-item .add-to-cart {
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.gallery-item:hover .add-to-cart {
+  opacity: 1;
+}
+
+.gallery-item img {
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+}
+.position-relative {
+  overflow: hidden;
+}
+
+.add-to-cart {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.position-relative:hover .add-to-cart {
+  opacity: 1;
+}
+
+
+
       </style>
   
       <script>
@@ -365,7 +479,6 @@
     <!-- <section> close ============================-->
     <!-- ============================================-->
 
-
   </main>
   <!-- ===============================================-->
   <!--    End of Main Content-->
@@ -402,6 +515,90 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap"
     rel="stylesheet">
+    <script>
+  let cart = [];
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Default: tampilkan hanya kategori ultah
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.style.display = item.classList.contains('ultah') ? 'block' : 'none';
+    });
+
+    // Aktifkan tombol filter kategori
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          item.style.display = item.classList.contains(filter) ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Tambahkan ke keranjang
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        const price = parseInt(btn.getAttribute('data-price'));
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+          existing.qty++;
+        } else {
+          cart.push({ name, price, qty: 1 });
+        }
+        alert(name + " ditambahkan ke keranjang!");
+        updateCart();
+      });
+    });
+  });
+
+  function toggleCart() {
+    const cartEl = document.getElementById('cart');
+    cartEl.style.display = cartEl.style.display === 'none' ? 'block' : 'none';
+  }
+
+  function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    cartItems.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+      total += item.price * item.qty;
+      cartItems.innerHTML += `<li>${item.name} x ${item.qty} - Rp ${(item.price * item.qty).toLocaleString()}</li>`;
+    });
+    cartTotal.textContent = total.toLocaleString();
+  }
+
+  function checkout() {
+  if (cart.length === 0) {
+    alert("Keranjang kosong!");
+    return;
+  }
+
+  let message = "Pesanan Anda:\n";
+  cart.forEach(item => {
+    message += `${item.name} x ${item.qty} = Rp ${(item.price * item.qty).toLocaleString()}\n`;
+  });
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  message += `\nTotal: Rp ${total.toLocaleString()}`;
+
+  const phone = "6281282351196"; // ganti dengan nomor kamu
+const waMessage = encodeURIComponent(message);
+window.open(`https://wa.me/${phone}?text=${waMessage}`, "_blank");
+
+
+  clearCart(); // kosongkan isi cart
+}
+
+
+  function clearCart() {
+    cart = [];
+    updateCart();
+  }
+</script>
+
 </body>
 
 </html>
