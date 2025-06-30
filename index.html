@@ -140,9 +140,9 @@
 
       <!-- KUE ULTAH -->
       <div class="col-md-4 mb-4 gallery-item ultah">
-        <div class="position-relative cake-card">
+        <div class="position-relative">
           <img src="public/assets/img/ultah1.jpg" class="img-fluid rounded" alt="Kue Ultah 1">
-          <button class="btn btn-warning btn-sm add-to-cart cart-btn position-absolute top-50 start-50 translate-middle"
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
             data-name="Kue Ultah Classic" data-price="300000">
             <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
           </button>
@@ -154,9 +154,9 @@
       </div>
 
       <div class="col-md-4 mb-4 gallery-item ultah">
-        <div class="position-relative cake-card">
+        <div class="position-relative">
           <img src="public/assets/img/ultah2.jpg" class="img-fluid rounded" alt="Kue Ultah 2">
-          <button class="btn btn-warning btn-sm add-to-cart cart-btn position-absolute top-50 start-50 translate-middle"
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
             data-name="Kue Ultah Cokelat" data-price="320000">
             <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
           </button>
@@ -169,9 +169,9 @@
 
       <!-- KUE BROWNIES -->
       <div class="col-md-4 mb-4 gallery-item brownies">
-        <div class="position-relative cake-card">
+        <div class="position-relative">
           <img src="public/assets/img/brownies1.jpg" class="img-fluid rounded" alt="Brownies 1">
-          <button class="btn btn-warning btn-sm add-to-cart cart-btn position-absolute top-50 start-50 translate-middle"
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
             data-name="Brownies Cokelat" data-price="150000">
             <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
           </button>
@@ -183,9 +183,9 @@
       </div>
 
       <div class="col-md-4 mb-4 gallery-item brownies">
-        <div class="position-relative cake-card">
+        <div class="position-relative">
           <img src="public/assets/img/brownies2.jpg" class="img-fluid rounded" alt="Brownies 2">
-          <button class="btn btn-warning btn-sm add-to-cart cart-btn position-absolute top-50 start-50 translate-middle"
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
             data-name="Brownies Strawberry" data-price="160000">
             <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
           </button>
@@ -198,9 +198,9 @@
 
       <!-- KUE BOLU -->
       <div class="col-md-4 mb-4 gallery-item bolu">
-        <div class="position-relative cake-card">
+        <div class="position-relative">
           <img src="public/assets/img/bolu1.jpg" class="img-fluid rounded" alt="Bolu 1">
-          <button class="btn btn-warning btn-sm add-to-cart cart-btn position-absolute top-50 start-50 translate-middle"
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
             data-name="Bolu Cokelat" data-price="120000">
             <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
           </button>
@@ -212,9 +212,9 @@
       </div>
 
       <div class="col-md-4 mb-4 gallery-item bolu">
-        <div class="position-relative cake-card">
+        <div class="position-relative">
           <img src="public/assets/img/bolu2.jpg" class="img-fluid rounded" alt="Bolu 2">
-          <button class="btn btn-warning btn-sm add-to-cart cart-btn position-absolute top-50 start-50 translate-middle"
+          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
             data-name="Bolu Talas" data-price="130000">
             <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
           </button>
@@ -228,7 +228,6 @@
     </div>
   </div>
 </section>
-
 
   
       <style>
@@ -298,21 +297,7 @@
     .card-body p {
       font-size: 0.85rem;
     }
-    .cake-card {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cake-card .cart-btn {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .cake-card:hover .cart-btn,
-  .cake-card:focus-within .cart-btn {
-    opacity: 1;
-  }
-   .filter-btn.active {
+     .filter-btn.active {
           background-color: #ffbd2e;
           color: #fff;
           border-color: #ffbd2e;
@@ -382,7 +367,7 @@
 .position-relative:hover .add-to-cart {
   opacity: 1;
 }
-}
+  }
 </style>
   
       <script>
