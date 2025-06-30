@@ -52,43 +52,34 @@
   <!--    Main Content-->
   <!-- ===============================================-->
 <main class="main tes" id="top" style="overflow-x: hidden;">
-<nav class="navbar navbar-expand-lg navbar-light sticky-top bg-white" data-navbar-on-scroll="data-navbar-on-scroll" data-aos="fade-down">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">
-      <img src="public/assets/img/amorlogo1.png" style="width: 100px;" alt="Logo Amor Cakes">
-    </a>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-white" data-aos="fade-down">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="public/assets/img/amorlogo1.png" style="width: 100px;" alt="Logo Amor Cakes">
+        </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#feature">Produk</a></li>
-        <li class="nav-item"><a class="nav-link" href="#validation">Tentang Kami</a></li>
-        <li class="nav-item"><a class="nav-link" href="#superhero">Ulasan</a></li>
-        <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Bagian Keranjang Belanja -->
-<div class="container mt-4" id="cart-section">
-  <h3 class="text-center mb-4">Keranjang Belanja</h3>
-  <div id="cart" class="p-3 border rounded bg-light">
-    <ul id="cart-items" class="list-group mb-3"></ul>
-    <h5>Total: Rp <span id="cart-total">0</span></h5>
-    <div class="d-flex flex-column flex-md-row gap-2">
-      <button class="btn btn-success w-100" onclick="checkout()">Checkout</button>
-      <button class="btn btn-danger w-100" onclick="clearCart()">Hapus Semua</button>
-    </div>
-  </div>
-</div>
-
-
+        <div class="collapse navbar-collapse d-lg-none" id="navbarMobile">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#feature">Produk</a></li>
+            <li class="nav-item"><a class="nav-link" href="#validation">Tentang Kami</a></li>
+            <li class="nav-item"><a class="nav-link" href="#superhero">Ulasan</a></li>
+            <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+            <li class="nav-item"><a class="nav-link" href="#cart-section">Keranjang</a></li>
           </ul>
+        </div>
+
+        <div class="d-none d-lg-flex align-items-center gap-3 ms-auto">
+          <a class="nav-link" href="#feature">Produk</a>
+          <a class="nav-link" href="#validation">Tentang Kami</a>
+          <a class="nav-link" href="#superhero">Ulasan</a>
+          <a class="nav-link" href="#kontak">Kontak</a>
+          <a class="nav-link" href="#cart-section">
+            <i class="fas fa-shopping-cart"></i> Keranjang
+          </a>
         </div>
       </div>
     </nav>
