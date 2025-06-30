@@ -297,6 +297,20 @@
     .card-body p {
       font-size: 0.85rem;
     }
+    .cake-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cake-card .cart-btn {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .cake-card:hover .cart-btn,
+  .cake-card:focus-within .cart-btn {
+    opacity: 1;
+  }
   }
 </style>
   
