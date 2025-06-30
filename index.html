@@ -52,42 +52,60 @@
   <!--    Main Content-->
   <!-- ===============================================-->
 <main class="main tes" id="top" style="overflow-x: hidden;">
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top" data-navbar-on-scroll="data-navbar-on-scroll" data-aos="fade-down">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top bg-white" data-navbar-on-scroll="data-navbar-on-scroll" data-aos="fade-down">
   <div class="container">
+    <!-- Logo -->
     <a class="navbar-brand" href="index.html">
-      <img src="public/assets/img/amorlogo1.png" width="20%">
+      <img src="public/assets/img/amorlogo1.png" width="100">
     </a>
 
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    <!-- Garis 3: Posisi kanan atas -->
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    
-    <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto"> <!-- Menu berada di kanan -->
-          <li class="nav-item"><a class="nav-link" aria-current="page" href="#feature">Produk</a></li>
-          <li class="nav-item"><a class="nav-link" aria-current="page" href="#validation">Tentang Kami</a></li>
-          <li class="nav-item"><a class="nav-link" aria-current="page" href="#superhero">Ulasan</a></li>
-          <li class="nav-item"><a class="nav-link" aria-current="page" href="#kontak">Kontak</a></li>
-          <hr class="my-5">
-<div class="container" id="cart-section">
-  <h3 class="text-center mb-4">Keranjang Belanja</h3>
-  <div id="cart" class="p-3 border rounded bg-light">
-    <ul id="cart-items" class="list-group mb-3"></ul>
-    <h5>Total: Rp <span id="cart-total">0</span></h5>
-    <div class="d-flex gap-2">
-      <button class="btn btn-success w-100" onclick="checkout()">Checkout</button>
-      <button class="btn btn-danger w-100" onclick="clearCart()">Hapus Semua</button>
-    </div>
-  </div>
-</div>
+    <!-- Menu dan cart -->
+    <div class="collapse navbar-collapse mt-4 mt-lg-0" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto align-items-lg-center"> <!-- Menu berada di kanan -->
 
-          </ul>
+        <!-- Menu Navigasi -->
+        <li class="nav-item"><a class="nav-link" href="#feature">Produk</a></li>
+        <li class="nav-item"><a class="nav-link" href="#validation">Tentang Kami</a></li>
+        <li class="nav-item"><a class="nav-link" href="#superhero">Ulasan</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+
+        <!-- Cart untuk HP (di dropdown) -->
+        <li class="nav-item d-lg-none mt-4">
+          <hr>
+          <h6 class="text-center mb-3">Keranjang Belanja</h6>
+          <div id="cart-mobile" class="p-3 border rounded bg-light">
+            <ul id="cart-items-mobile" class="list-group mb-2"></ul>
+            <p>Total: Rp <span id="cart-total-mobile">0</span></p>
+            <div class="d-flex flex-column gap-2">
+              <button class="btn btn-success" onclick="checkout()">Checkout</button>
+              <button class="btn btn-danger" onclick="clearCart()">Hapus Semua</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Cart untuk desktop (sejajar di kanan) -->
+      <div class="d-none d-lg-block ms-3" style="width: 280px;">
+        <div id="cart" class="p-3 border rounded bg-light">
+          <h6 class="text-center mb-2">Keranjang Belanja</h6>
+          <ul id="cart-items" class="list-group mb-2" style="font-size: 0.9rem;"></ul>
+          <small>Total: Rp <span id="cart-total">0</span></small>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-success btn-sm" onclick="checkout()">Checkout</button>
+            <button class="btn btn-danger btn-sm" onclick="clearCart()">Hapus</button>
+          </div>
         </div>
       </div>
-    </nav>
+    </div>
+  </div>
+</nav>
+
     <section class="pt-7">
       <div class="container">
         <div class="row align-items-center">
