@@ -600,16 +600,28 @@
   }
 
   function updateCart() {
-    const cartItems = document.getElementById('cart-items');
-    const cartTotal = document.getElementById('cart-total');
-    cartItems.innerHTML = '';
-    let total = 0;
-    cart.forEach(item => {
-      total += item.price * item.qty;
-      cartItems.innerHTML += `<li>${item.name} x ${item.qty} - Rp ${(item.price * item.qty).toLocaleString()}</li>`;
-    });
-    cartTotal.textContent = total.toLocaleString();
-  }
+  const cartItems = document.getElementById('cart-items');
+  const cartTotal = document.getElementById('cart-total');
+
+  const cartItemsMobile = document.getElementById('cart-items-mobile');
+  const cartTotalMobile = document.getElementById('cart-total-mobile');
+
+  cartItems.innerHTML = '';
+  cartItemsMobile.innerHTML = '';
+
+  let total = 0;
+
+  cart.forEach(item => {
+    const itemText = `${item.name} x ${item.qty} - Rp ${(item.price * item.qty).toLocaleString()}`;
+    cartItems.innerHTML += `<li>${itemText}</li>`;
+    cartItemsMobile.innerHTML += `<li>${itemText}</li>`;
+    total += item.price * item.qty;
+  });
+
+  cartTotal.textContent = total.toLocaleString();
+  cartTotalMobile.textContent = total.toLocaleString();
+}
+
 
   function checkout() {
   if (cart.length === 0) {
@@ -624,12 +636,11 @@
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
   message += `\nTotal: Rp ${total.toLocaleString()}`;
 
-  const phone = "6281282351196"; // ganti dengan nomor kamu
-const waMessage = encodeURIComponent(message);
-window.open(`https://wa.me/${phone}?text=${waMessage}`, "_blank");
+  const phone = "6281282351196"; // Ganti ke nomor WA kamu
+  const waMessage = encodeURIComponent(message);
+  window.open(`https://wa.me/${phone}?text=${waMessage}`, "_blank");
 
-
-  clearCart(); // kosongkan isi cart
+  clearCart();
 }
 
 
