@@ -52,39 +52,57 @@
   <!--    Main Content-->
   <!-- ===============================================-->
 <main class="main tes" id="top" style="overflow-x: hidden;">
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-white" data-aos="fade-down">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <img src="public/assets/img/amorlogo1.png" style="width: 100px;" alt="Logo Amor Cakes">
-        </a>
+<nav class="navbar navbar-expand-lg navbar-light sticky-top bg-white" data-navbar-on-scroll="data-navbar-on-scroll" data-aos="fade-down">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="public/assets/img/amorlogo1.png" style="width: 100px;" alt="Logo Amor Cakes">
+    </a>
 
-        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Hamburger Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarSupportedContent">
-  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-    <li class="nav-item"><a class="nav-link" href="#feature">Produk</a></li>
-    <li class="nav-item"><a class="nav-link" href="#validation">Tentang Kami</a></li>
-    <li class="nav-item"><a class="nav-link" href="#superhero">Ulasan</a></li>
-    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
-    <li class="nav-item"><a class="nav-link" href="#cart-section"><i class="fa fa-shopping-cart me-2"></i>Keranjang</a></li>
+    <!-- Menu dan Cart -->
+    <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!-- Menu Navigasi -->
+        <li class="nav-item"><a class="nav-link" href="#feature">Produk</a></li>
+        <li class="nav-item"><a class="nav-link" href="#validation">Tentang Kami</a></li>
+        <li class="nav-item"><a class="nav-link" href="#superhero">Ulasan</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
 
-  </ul>
+        <!-- Cart Khusus Mobile -->
+        <li class="nav-item d-block d-lg-none mt-3">
+          <h6 class="text-center mb-2">Keranjang Belanja</h6>
+          <div class="p-3 border rounded bg-light">
+            <ul id="cart-items-mobile" class="list-group mb-2"></ul>
+            <p>Total: Rp <span id="cart-total-mobile">0</span></p>
+            <div class="d-flex flex-column gap-2">
+              <button class="btn btn-success" onclick="checkout()">Checkout</button>
+              <button class="btn btn-danger" onclick="clearCart()">Hapus Semua</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Cart Desktop (Tersembunyi di HP) -->
+<div class="container mt-4 d-none d-lg-block" id="cart-section">
+  <h3 class="text-center mb-4">Keranjang Belanja</h3>
+  <div id="cart" class="p-3 border rounded bg-light">
+    <ul id="cart-items" class="list-group mb-3"></ul>
+    <h5>Total: Rp <span id="cart-total">0</span></h5>
+    <div class="d-flex flex-column flex-md-row gap-2">
+      <button class="btn btn-success w-100" onclick="checkout()">Checkout</button>
+      <button class="btn btn-danger w-100" onclick="clearCart()">Hapus Semua</button>
+    </div>
+  </div>
 </div>
 
-
-        <div class="d-none d-lg-flex align-items-center gap-3 ms-auto">
-          <a class="nav-link" href="#feature">Produk</a>
-          <a class="nav-link" href="#validation">Tentang Kami</a>
-          <a class="nav-link" href="#superhero">Ulasan</a>
-          <a class="nav-link" href="#kontak">Kontak</a>
-          <a class="nav-link" href="#cart-section">
-            <i class="fas fa-shopping-cart"></i> Keranjang
-          </a>
-        </div>
-      </div>
-    </nav>
     <section class="pt-7">
       <div class="container">
         <div class="row align-items-center">
@@ -557,17 +575,27 @@
     cartEl.style.display = cartEl.style.display === 'none' ? 'block' : 'none';
   }
 
-  function updateCart() {
-    const cartItems = document.getElementById('cart-items');
-    const cartTotal = document.getElementById('cart-total');
-    cartItems.innerHTML = '';
-    let total = 0;
-    cart.forEach(item => {
-      total += item.price * item.qty;
-      cartItems.innerHTML += `<li>${item.name} x ${item.qty} - Rp ${(item.price * item.qty).toLocaleString()}</li>`;
-    });
-    cartTotal.textContent = total.toLocaleString();
-  }
+function updateCart() {
+  const cartItems = document.getElementById('cart-items');
+  const cartItemsMobile = document.getElementById('cart-items-mobile');
+  const cartTotal = document.getElementById('cart-total');
+  const cartTotalMobile = document.getElementById('cart-total-mobile');
+
+  cartItems.innerHTML = '';
+  cartItemsMobile.innerHTML = '';
+  let total = 0;
+
+  cart.forEach(item => {
+    const html = `<li class="list-group-item">${item.name} x ${item.qty} - Rp ${(item.price * item.qty).toLocaleString()}</li>`;
+    cartItems.innerHTML += html;
+    cartItemsMobile.innerHTML += html;
+    total += item.price * item.qty;
+  });
+
+  cartTotal.textContent = total.toLocaleString();
+  cartTotalMobile.textContent = total.toLocaleString();
+}
+
 
   function checkout() {
   if (cart.length === 0) {
