@@ -213,80 +213,74 @@
 
   
       <style>
-        .filter-btn.active {
-          background-color: #ffbd2e;
-          color: #fff;
-          border-color: #ffbd2e;
-        }
-  
-        .cake-info h5 {
-          font-weight: 600;
-          font-size: 1.1rem;
-          color: #333;
-        }
-  
-        .cake-info p {
-          color: #ff7f00;
-          font-weight: 700;
-          font-size: 1rem;
-        }
-        .gallery-item .position-relative {
-  overflow: hidden;
-}
+  /* Tambahan responsive */
+  @media (max-width: 768px) {
+    h1, h2, h3, .fw-bold {
+      font-size: 1.5rem !important;
+    }
 
-.gallery-item img {
-  transition: transform 0.3s ease;
-}
+    .navbar-brand img {
+      width: 40% !important;
+    }
 
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
+    .navbar-collapse {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 10px;
+    }
 
-.gallery-item .add-to-cart {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+    .filter-btn {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
 
-.gallery-item:hover .add-to-cart {
-  opacity: 1;
-}
-.gallery-item .position-relative {
-  overflow: hidden;
-}
+    #gallery .col-md-4 {
+      width: 100%;
+    }
 
-.gallery-item .add-to-cart {
-  opacity: 0;
-  transition: 0.3s ease;
-}
+    .container iframe {
+      width: 100% !important;
+      height: 300px !important;
+    }
 
-.gallery-item:hover .add-to-cart {
-  opacity: 1;
-}
+    .row {
+      flex-direction: column;
+    }
 
-.gallery-item img {
-  transition: transform 0.3s ease;
-}
+    .text-md-start {
+      text-align: center !important;
+    }
 
-.gallery-item:hover img {
-  transform: scale(1.03);
-}
-.position-relative {
-  overflow: hidden;
-}
+    .btn-lg {
+      font-size: 1rem;
+      padding: 0.6rem 1rem;
+    }
 
-.add-to-cart {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
-}
+    .cake-info h5,
+    .cake-info p {
+      font-size: 0.9rem;
+    }
 
-.position-relative:hover .add-to-cart {
-  opacity: 1;
-}
+    #cart-section {
+      padding: 1rem;
+    }
 
+    .btn.w-100 {
+      font-size: 0.9rem;
+    }
+  }
 
+  @media (max-width: 480px) {
+    h1.fs-9, h2.fs-7 {
+      font-size: 1.2rem !important;
+    }
 
-      </style>
+    .card-body p {
+      font-size: 0.85rem;
+    }
+  }
+</style>
   
       <script>
         document.querySelectorAll('.filter-btn').forEach(btn => {
