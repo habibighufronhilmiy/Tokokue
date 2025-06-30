@@ -130,19 +130,18 @@
 <section class="pt-5" id="feature" data-aos="fade-down">
   <div class="container">
     <h2 class="text-center mb-4">Kategori Kue</h2>
-    <div class="d-flex justify-content-center mb-4">
+    <div class="d-flex justify-content-center mb-4 flex-wrap">
       <button class="btn btn-outline-warning mx-2 filter-btn active" data-filter="ultah">Kue Ultah</button>
       <button class="btn btn-outline-warning mx-2 filter-btn" data-filter="brownies">Kue Brownies</button>
       <button class="btn btn-outline-warning mx-2 filter-btn" data-filter="bolu">Kue Bolu</button>
     </div>
 
     <div class="row" id="gallery">
-
-      <!-- KUE ULTAH -->
+      <!-- Contoh Produk -->
       <div class="col-md-4 mb-4 gallery-item ultah">
-        <div class="position-relative">
+        <div class="cake-card">
           <img src="public/assets/img/ultah1.jpg" class="img-fluid rounded" alt="Kue Ultah 1">
-          <button class="btn btn-warning btn-sm add-to-cart position-absolute top-50 start-50 translate-middle"
+          <button class="btn btn-warning btn-sm add-to-cart"
             data-name="Kue Ultah Classic" data-price="300000">
             <i class="fa fa-cart-plus me-1"></i> Tambah ke Keranjang
           </button>
@@ -231,89 +230,50 @@
 
 
   
-      <style>
-  /* Tambahan responsive */
-  @media (max-width: 768px) {
-    h1, h2, h3, .fw-bold {
-      font-size: 1.5rem !important;
-    }
+<style>
+  .cake-card {
+    position: relative;
+    overflow: hidden;
+  }
 
-    .navbar-brand img {
-      width: 40% !important;
-    }
+  .cake-card img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
 
-    .navbar-collapse {
-      background-color: white;
-      padding: 1rem;
-      border-radius: 10px;
-    }
+  .cake-card .add-to-cart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10;
+  }
 
-    .filter-btn {
-      display: block;
-      width: 100%;
-      margin-bottom: 10px;
-    }
+  .cake-card:hover .add-to-cart,
+  .cake-card:focus-within .add-to-cart {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-    #gallery .col-md-4 {
-      width: 100%;
-    }
-
-    .container iframe {
-      width: 100% !important;
-      height: 300px !important;
-    }
-
-    .row {
-      flex-direction: column;
-    }
-
-    .text-md-start {
-      text-align: center !important;
-    }
-
-    .btn-lg {
-      font-size: 1rem;
-      padding: 0.6rem 1rem;
-    }
-
-    .cake-info h5,
-    .cake-info p {
-      font-size: 0.9rem;
-    }
-
-    #cart-section {
-      padding: 1rem;
-    }
-
-    .btn.w-100 {
-      font-size: 0.9rem;
+  /* Mobile support: tap image to show button */
+  @media (hover: none) {
+    .cake-card img:active + .add-to-cart,
+    .cake-card img:focus + .add-to-cart {
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 
-  @media (max-width: 480px) {
-    h1.fs-9, h2.fs-7 {
-      font-size: 1.2rem !important;
-    }
-
-    .card-body p {
-      font-size: 0.85rem;
-    }
-    .position-relative {
-  overflow: hidden;
-}
-
-.add-to-cart {
-  z-index: 2;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.position-relative:hover .add-to-cart {
-  opacity: 1;
-}
-
+  .cake-info h5,
+  .cake-info p {
+    margin: 0;
   }
 </style>
+
   
       <script>
         document.querySelectorAll('.filter-btn').forEach(btn => {
