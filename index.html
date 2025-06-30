@@ -601,10 +601,11 @@
 
   function updateCart() {
   const cartItems = document.getElementById('cart-items');
-  const cartTotal = document.getElementById('cart-total');
-
   const cartItemsMobile = document.getElementById('cart-items-mobile');
+  const cartTotal = document.getElementById('cart-total');
   const cartTotalMobile = document.getElementById('cart-total-mobile');
+
+  if (!cartItems || !cartItemsMobile || !cartTotal || !cartTotalMobile) return;
 
   cartItems.innerHTML = '';
   cartItemsMobile.innerHTML = '';
@@ -612,15 +613,21 @@
   let total = 0;
 
   cart.forEach(item => {
-    const itemText = `${item.name} x ${item.qty} - Rp ${(item.price * item.qty).toLocaleString()}`;
-    cartItems.innerHTML += `<li>${itemText}</li>`;
-    cartItemsMobile.innerHTML += `<li>${itemText}</li>`;
+    const itemHTML = `<li class="list-group-item d-flex justify-content-between align-items-center">
+      ${item.name} x ${item.qty}
+      <span>Rp ${(item.price * item.qty).toLocaleString()}</span>
+    </li>`;
+
+    cartItems.innerHTML += itemHTML;
+    cartItemsMobile.innerHTML += itemHTML;
+
     total += item.price * item.qty;
   });
 
   cartTotal.textContent = total.toLocaleString();
   cartTotalMobile.textContent = total.toLocaleString();
 }
+
 
 
   function checkout() {
